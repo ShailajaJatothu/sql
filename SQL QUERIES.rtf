@@ -1,0 +1,249 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
+{\*\generator Riched20 10.0.22621}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\f0\fs22\lang9 create table employee(\par
+id number primary key,\par
+name varchar(12) not null,\par
+age number not null,\par
+address varchar(20) not null,\par
+salary float check(salary>10000)\par
+);\par
+\par
+insert into employees(id,name,age,address,salary) values(1,'ramesh',32,'ahemedabad',2000.00)\par
+insert into employees values(2,'khilan',25,'delhi',1500.00)\par
+create table personstable(\par
+personid number primary key,\par
+last name varchar(20) not null,\par
+first name varchar(20) not null,\par
+age number check(age>18)\par
+);\par
+create table orders(\par
+orderid number primary key,\par
+ordernumber number unique,\par
+personid number references persontable(personid),\par
+);\par
+\par
+CREATE TABLE departments\par
+  (\par
+     id   NUMBER PRIMARY KEY,\par
+     name VARCHAR(6) NOT NULL,\par
+     hod  VARCHAR(6) NOT NULL\par
+  ); \par
+ALTER TABLE DEPARTMENTS ADD \par
+ALTER TABLE DEPARTMENTS  DROP HOD;\par
+ALTER TABLE DEPARTMENTS  RENAME ID=COLID\par
+ALTER TABLE DEPARTMENTS  MODIFY\par
+\par
+create table books (id number primary key,name char(10) not null,price float not null);\par
+\tab insert all\par
+\tab\tab into books (id,name,price) values ('C',1,250)\par
+\tab\tab into books (id,name,price) values (2,'Cpp',350)\par
+\tab\tab into books (id,name,price) values (3,'Java',450)\par
+\tab\tab into books (id,name,price) values (4,'Kotlin',250)\par
+\tab\tab into books (id,name,price) values (5,'Php',650)\par
+\tab\tab into books (id,name,price) values (6,'C',1050)\par
+\tab\tab into books (id,name,price) values (7,'SQL',500)\par
+\tab\tab into books (id,name,price) values (8,'JS',950)\par
+\tab select 1 from dual;\par
+\tab\tab\par
+Task4.1: Delete,Drop and Truncate commands:\par
+DROP TABLE BOOKS;\par
+DELETE FROM BOOKS WHERE ID='c';\par
+TRUNCATE BOOKS;\par
+\par
+\par
+\par
+Q1: Delete 3rd id book\par
+DELETE FROM TABLE WHERE ID=3\par
+Q2: Delete all c books \par
+DELETE FROM TABLE WHERE ID='C'\par
+Q3: Delete all books  whose price is below 500\par
+DELETE FROM TABLE WHERE PRICE <500\par
+Q4: Delete rest of all books \par
+\par
+Q5: Delete books table from database \par
+DROP TABLE BOOKS\par
+\par
+\par
+Task4.2: Alter command\par
+\par
+create table products (id number primary key, name char(10) not null, cost number not null);\par
+\par
+Q1: Developer want to ADD a new columns \tab\tab i.e createdDate,modifiedDate\par
+Q2: Developer want to DROP an existing column \tab i.e cost  \par
+ALTER TABLE PRODUCTS DROP COLUMN COST\par
+Q3: Developer want to RENAME  id column to sno\par
+ALTER TABLE PRODUCTS RENAME ID TO SNO\par
+Q4: Developer want to MODIFY  name column  size to char(20) and unique constraint.\par
+ALTER TABLE PRODUCTS MODIFY(NAME CHAR(20) UNIQUE)\par
+\par
+Task4.3: Update command\par
+\par
+1.Create Table --> employee\par
+----------------------------\par
+\par
+   create table employee\par
+(\par
+  id number(2) primary key,\par
+  name varchar(10) not null,\par
+  age number(3) not null check(age>0 and age<105),\par
+  adress varchar(10) not null,\par
+  salary float(9) not null,\par
+  createdDate date default sysdate,\par
+  modifiedDate date default sysdate\par
+);\par
+\par
+  create sequence employee_seq\par
+  start with 1\par
+  increment by 1\par
+  minvalue 0\par
+  maxvalue 50\par
+  cycle;\par
+\par
+  insert into employee(id,name,age,adress,salary) values(employee_seq.nextval,'Ramesh',32,'Ahmedabad',2000.00);\par
+  insert into employee(id,name,age,adress,salary) values(employee_seq.nextval,'Khilan',25,'Delhi',1500.00);\par
+  insert into employee(id,name,age,adress,salary) values(employee_seq.nextval,'Kaushik',23,'Kota',2000.00);\par
+  insert into employee(id,name,age,adress,salary) values(employee_seq.nextval,'Chaitali',25,'Mumbai',6500.00);\par
+  insert into employee(id,name,age,adress,salary) values(employee_seq.nextval,'Hardik',27,'Bhopal',8500.00);\par
+  insert into employee(id,name,age,adress,salary) values(employee_seq.nextval,'Komal',22,'MP',4500.00);\par
+  insert into employee(id,name,age,adress,salary) values(employee_seq.nextval,'Muffy',24,'Indore',10000.00);\par
+\par
+Class Work:\par
+\par
+R1:Modify all employees address to Chennai\par
+UPDATE TABLE EMPLOYESS SET ADDRESS='CHENNAI';\par
+R2:Komal wants to update his address to Delhi\par
+UPDATE TABLE EMPLOYEES SET ADDRESS='DELHI' WHERE NAME='KOMAL'\par
+R3:Muffy wants to update his age to 23, name to Muffi and address to Hyd and salary to 54000\par
+UPDATE TABLE EMPLOYEES SET AGE=23,NAME='MUFFI',ADDRESS='HYD' AND SALARY=54000 WHERE NAME='MUFFY'\par
+R4:Give bonus of 2500 to all employees\par
+UPDATE TABLE EMPLOYEES SET SALARY=SALARY+2500\par
+R5:Give bonus of 5000 to all employees whose salary is below 50000\par
+UPDATE TABLE EMPLOYEES SET SALARY=SALARY+5000 WHERE SALARY<5000\par
+\par
+R6:Deduct 1000 from all employees whose salary is above 50000\par
+UPDATE TABLE EMPLOYEES SET SALARY=SALARY-1000 WHERE SALARY>5000\par
+\par
+Home Work1:\par
+\par
+Req1: modify sanju city to warangal\par
+Req2: modify depak city to karimnagar,age to 31,salary to 44000 and name T SaiDepak\par
+Req3: modify all employees cities to mumbai\par
+Req4: vijay wants change his password to apple\par
+Req5: venu wants to change his dept to it and city to delhi\par
+Req6: give bonus of 2000 to all employees whose salary is below 45000\par
+\par
+\par
+Table: accounts\par
+columns : accno,name,amount\par
+\par
+create table accounts(accno number primary key,name varchar(10) not null,amount float not null);\par
+insert into accounts values(101001,'GANESH',48000);\par
+insert into accounts values(101002,'VARUN',78000);\par
+insert into accounts values(101003,'ANIL',88000);\par
+commit;\par
+select * from accounts;\par
+\par
+\par
+Home Work2:\par
+\par
+R1:GANESH's father sending 10000 to him.\par
+\par
+\tab update accounts set amount=amount+10000 where accno=101001;\par
+\tab\par
+R2:VARUN did the shopping of 7k.\par
+\par
+\tab update accounts set amount=amount-7000 where accno=101002;\par
+\par
+R3:GANESH wants to send 5000 to VARUN.\par
+\par
+Debit Query  :\tab\par
+Credit Query :\par
+Select Command:\par
+===============\par
+It is a DQL command used to retrieve / fetch row/rows from table.\par
+\par
+syntax:\par
+\par
+\tab select column1name,column2name,...... from <tablename>  [where] [group by] [order by];\par
+\tab\par
+TASK5.1:\par
+\par
+Requirement: Show all employees names   (Reading one column value)\par
+SELECT NAMES FROM EMPLOYEES;\par
+Requirement: Show all employees mailid\tab (Reading one column value)\par
+SELECT MAILID FROM EMPLOYEES;\par
+Requirement: Show all employees userid and pswd (Reading more than one column values)\par
+SELECT USERID,PSWD FROM EMPLOYEE\par
+Requirement: Show all employees userid,salary and dept(Reading more than one column values)\par
+SELECT USERID,PSWD,DEPT FROM EMPLOYEE\par
+Requirement: Show all employee details\par
+SELECT *FROM EMPLOYEE\par
+\par
+\par
+Working aggrigate function in SQL:\par
+==================================\par
+\par
+1.max(columnname)\tab\tab\tab :  Return maximum value in all rows \par
+2.min(columnname)\tab\tab\tab :  Return minimum value in all rows \par
+3.sum(columnname)\tab\tab\tab :  Return sum of all values in all rows \par
+4.avg(columnname)\tab\tab\tab :  Return average of all values in all rows \par
+5.count(columnname)\tab\tab\tab :  Return number of rows\par
+\par
+TASK5.2:\par
+\par
+Requirement1: Show highest salary in employees table\par
+SELECT MAX(SALARY) FROM EMPLOYEE;\par
+Requirement2: Show lowest salary in employees table\par
+SELECT MIN(SALARY) FROM EMPLOYEE;\par
+Requirement3: Show sum of all salares in employees table\par
+SELECT SUM(SALARY) FROM EMPLOYEE;\par
+Requirement4: Show average of all salares in employees table\par
+SELECR AVG(SALARY) FROM EMPLOYEE\par
+Requirement5: Show number of rows in employees table\par
+SELECT COUNT(*) FROM EMPLOYEE;\par
+Requirement6: Show eldest employee age in employees table\par
+SELECT MAX(AGE) FROM EMPLOYEE;\par
+Requirement7: Show younger employee age in employees table\par
+SELECT MIN(AGE) FROM EMPLOYEE;\par
+\par
+Working with Relational operators(<,>,<=,>=,!=,<>,=) in SQL:\par
+========================================================\par
+\par
+Requirement1:Show name and age of all employees,  whose salary is below 40000\par
+\par
+select name,age from employees where salary < 40000;\par
+\par
+TASK5.3:\par
+\par
+Requirement2:Show name,email of employees, whose salary is above 40000\par
+SELECT NAME,EMAIL FROM EMPLOYEE WHERE SALARY>40000\par
+Requirement3:Show all employees details whose salary is 50000 and above\par
+SELECT *FROM EMPLOYEE WHERE SALARY>=50000\par
+Requirement4:Show all employees details whose salary is 50000 and below\par
+SELECT *FROM EMPLOYEE WHERE SALARY<=50000\par
+\par
+Requirement5:Show all employees details whose salary is 50000 \par
+SELECT *FROM EMPLOYEE WHERE SALARY=50000\par
+\par
+Requirement6:Show all employees details whose salary is other than 50000 \par
+SELECT *FROM EMPLOYEE WHERE SALARY!=50000\par
+Requirement7:Show all employees details whose belongs to hyd city\par
+SELECT  * FROM EMPLOYEES WHERE CITY='HYD'\par
+Requirement8:Show all employees details whose belongs to eee department\par
+SELECT  * FROM EMPLOYEES WHERE DEPARTMENT='EEE'\par
+\par
+Requirement9:Show all employees details whose belongs to pune city \par
+SELECT  * FROM EMPLOYEES WHERE CITY='PUNE'\par
+\par
+Requirement10:Show all employees details whose belongs to chennai  city\par
+SELECT  * FROM EMPLOYEES WHERE CITY='CHENNAI'\par
+\par
+Requirement11:Show all employees details whose belongs to cse department \par
+SELECT  * FROM EMPLOYEES WHERE DEPT='CHENNAI'\par
+\par
+Requirement12:Show sanjay details \par
+SELECT * FROM EMPLOYEES WHERE ID=2\par
+\par
+\par
+}
+ 
